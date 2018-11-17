@@ -7,32 +7,36 @@
   <title>Christmas gifts secret draw</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Roboto" rel="stylesheet">
   <link rel="stylesheet" href="./main.css">
-
 </head>
 
 <body>
-  	<h1>Christmas gifts secret draw</h1>
-  
-	<div id="participants" class="participants">
-		<div class="participant">
-			<input class="nameInput" type="text" />
+	<main class="main">
+		<h1 class="title">Christmas gifts secret draw</h1>
+		<p>Insert names in inputs below:</p>
+	
+		<div id="participants" class="participants">
+			<div class="participant">
+				<input class="nameInput" type="text" />
+			</div>
+		</div>  
+
+		<div class="nav">
+			<button id="btnAddName" onClick="addName()">Add name</button>
+			<button id="btnRemoveName" onClick="removeName()">Remove name</button>
+			<button id="btnDraw" onClick="draw()">Draw</button>
 		</div>
-	</div>  
 
-	<div class="nav">
-		<button id="btnAddName" onClick="addName()">Add name</button>
-		<button id="btnRemoveName" onClick="removeName()">Remove name</button>
-		<button id="btnDraw" onClick="draw()">Draw</button>
-	</div>
-
-	<div id="modal" class="modal">
-		<div class="modal__frame">
-			<div class="modal__content">
-				<span id="giftFrom" class="giftFrom"></span>gives a gift to <span id="giftTo" class="giftTo"></span>
+		<div id="modal" class="modal">
+			<div class="modal__frame">
+				<div class="modal__content">
+					<span id="giftFrom" class="giftFrom"></span>gives a gift to <span id="giftTo" class="giftTo"></span>
+				</div>
 			</div>
 		</div>
-	</div>
+	</main>
+
 <script src="https://cdn.jsdelivr.net/npm/mersennetwister@0.2.3/src/MersenneTwister.min.js"></script>
 <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.2.4/email.min.js"></script>
 <script type="text/javascript">

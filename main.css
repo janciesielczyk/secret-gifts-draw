@@ -1,7 +1,21 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
-    color: #333
+    color: #333;
+    font-size: 16px;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.title {
+    font-family: 'Amatic SC', cursive;
+    font-size: 3rem;
+    text-align: center;
 }
 
 .participant {
@@ -10,8 +24,50 @@ body {
 }
 
 .nameInput {
-    margin-right: 15px;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+
+.nameInput:disabled {
+    opacity: .8;
+}
+
+button {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: all .15s ease-in-out;
+    cursor: pointer;
+    background-color: #036803;
+    color: #fff;
+}
+
+button:hover {
+    background-color: #058305;
+}
+
+.participant button {
+    margin-left: 15px;
+}
+
 
 .modal {
     display: flex;
@@ -30,10 +86,20 @@ body {
     pointer-events: none;
     transition: opacity .3s ease-in-out;
     padding: 30px;
+    box-sizing: border-box;
 }	
 
 .modal__content {
     font-size: 3vw;
+}
+
+.modal__frame {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border: 5px dashed #fff;
+    align-items: center;
+    justify-content: center;
 }
 
 .modal--opened {

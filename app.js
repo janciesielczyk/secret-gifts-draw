@@ -20,7 +20,7 @@ function draw() {
                 j++;
                 drawnIndex = getRandomInt(0, names.length - 1);
             }
-            while(names[drawnIndex] === key & j < 50);
+            while(names[drawnIndex] === key && j < 50);
             results[key] = names[drawnIndex];
             names.splice(drawnIndex, 1);
         }
@@ -96,6 +96,11 @@ function showResultFor(name) {
 
 function sendEmail(name, button) {
     var email = window.prompt('Type email address','');
+    if(!validateEmail(email)) { 
+        alert("Type valid email address");
+        return false; 
+    }
+
     button.innerHTML = 'Sending...';
     button.disabled = true;
 
@@ -123,4 +128,9 @@ function sendEmail(name, button) {
 
 function insertAfter(newNode, referenceNode) {
     referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
+
+function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
 }
