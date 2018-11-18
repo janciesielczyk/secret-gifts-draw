@@ -3,6 +3,8 @@ body {
     box-sizing: border-box;
     color: #333;
     font-size: 16px;
+    padding: 0;
+    margin: 0;
 }
 
 .main {
@@ -14,13 +16,20 @@ body {
 
 .title {
     font-family: 'Amatic SC', cursive;
-    font-size: 3rem;
+    font-size: 2.8rem;
     text-align: center;
+}
+
+.participants {
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 0 10px;
 }
 
 .participant {
     display: block;
     margin-bottom: 15px;
+    display: flex;
 }
 
 .nameInput {
@@ -33,6 +42,10 @@ body {
     border: 1px solid #ced4da;
     border-radius: .25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    flex-grow: 1;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: normal;
 }
 
 .nameInput:disabled {
@@ -58,6 +71,7 @@ button {
     cursor: pointer;
     background-color: #036803;
     color: #fff;
+    flex-shrink: 0;
 }
 
 button:hover {

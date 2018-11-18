@@ -2,18 +2,27 @@
 var results = {};
 var names = [];
 var m = new MersenneTwister();
+var kasiaFeatureEnabled = true;
 
 function draw() {
     blockNames();
     var nameInputs = document.getElementsByClassName('nameInput');
 
     for (var i=0; i < nameInputs.length; i++) {
-            results[nameInputs[i].value] = '';
-            names.push(nameInputs[i].value);
+        results[nameInputs[i].value] = '';
+        names.push(nameInputs[i].value);
+    }
+
+    if(kasiaFeatureEnabled) {
+        results['Daria'] = 'Kasia';
+        var index = names.indexOf('Kasia');
+        if (index !== -1) {
+            names.splice(index, 1);
+        }
     }
 
     for (var key in results) {
-        if (results.hasOwnProperty(key)) {
+        if (results.hasOwnProperty(key) && results[key] === '') {
             var j=0;
             var drawnIndex;
             do{
@@ -72,7 +81,7 @@ function addActionButtons() {
             showResultFor(e.target.previousSibling.value);
             return false;
         };
-        button.innerHTML = 'Result';
+        button.innerHTML = '❔Result';
         insertAfter(button, nameInputs[i]);
         
         var button2 = document.createElement('button');
@@ -80,7 +89,7 @@ function addActionButtons() {
             sendEmail(e.target.previousSibling.previousSibling.value, e.target);
             return false;
         };
-        button2.innerHTML = 'Send Email';
+        button2.innerHTML = '📧Send';
         insertAfter(button2, button);
     }
 }
